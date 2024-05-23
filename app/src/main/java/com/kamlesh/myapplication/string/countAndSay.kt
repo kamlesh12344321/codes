@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun main() {
 //    println(countAndSay(1)) // Output: "1"

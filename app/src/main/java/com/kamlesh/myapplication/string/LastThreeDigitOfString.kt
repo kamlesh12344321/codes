@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun main() {
     val str = "123456789"

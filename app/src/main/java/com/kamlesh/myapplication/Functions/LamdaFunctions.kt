@@ -1,4 +1,4 @@
-package com.kamlesh.myapplication
+package com.kamlesh.myapplication.Functions
 
 fun main() {
     val result = performOperation(4,5){x,y -> x+y}

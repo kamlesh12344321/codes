@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun main() {
     val value = "I am kamlesh Kumar Patel"

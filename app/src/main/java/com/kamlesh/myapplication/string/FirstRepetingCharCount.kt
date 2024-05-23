@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun firstRepeatingCharWithCount(str: String): Pair<Char, Int>? {
     val charCount = mutableMapOf<Char, Int>()

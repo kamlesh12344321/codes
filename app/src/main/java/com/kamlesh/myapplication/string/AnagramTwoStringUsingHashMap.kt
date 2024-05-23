@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun areAnagrams(str1: String, str2: String): Boolean {
     // If lengths are not equal, they can't be anagrams

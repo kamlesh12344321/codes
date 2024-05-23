@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun countOccurrences(input: String): Map<Char, Int> {
     val charCount = mutableMapOf<Char, Int>()

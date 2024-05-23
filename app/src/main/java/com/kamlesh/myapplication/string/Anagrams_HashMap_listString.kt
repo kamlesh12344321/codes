@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun groupAnagrams(words: List<String>): List<List<String>> {
     val anagramMap = HashMap<String, MutableList<String>>()

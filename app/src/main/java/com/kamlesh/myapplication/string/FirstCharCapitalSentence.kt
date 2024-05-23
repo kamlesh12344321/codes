@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun capitalizeFirstChar(sentence: String): String {
     val words = sentence.split(" ")

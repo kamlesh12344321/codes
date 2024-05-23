@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun main() {
     println(compressString("aabcccccaaa")) // Output: "a2b1c5a3"

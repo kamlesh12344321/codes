@@ -1,4 +1,4 @@
-package com.kamlesh.string
+package com.kamlesh.myapplication.string
 
 fun main() {
     println(isPalindrome("A man, a plan, a canal: Panama")) // Output: true

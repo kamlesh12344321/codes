@@ -1,0 +1,9 @@
+
+
+01. onCreate()
+02. onStart()
+03. onResume()
+04. onPause()
+05. onStop()
+06. onDestroy()
+07. onRestart()

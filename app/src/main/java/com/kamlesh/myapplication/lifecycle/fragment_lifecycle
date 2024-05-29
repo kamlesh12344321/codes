@@ -1,0 +1,10 @@
+
+01. onAttached()
+02. onCreate()
+o3. onCreateView()
+04. onStart()
+05. onResume()
+06. onPause()
+07. onStop()
+08. onDestroyView()
+09. onDestroy()

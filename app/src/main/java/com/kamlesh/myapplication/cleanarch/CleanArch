@@ -1,0 +1,252 @@
+Clean Archtructure with code
+
+
+Domain:
+
+01. Generic Response(Success , error)(Interface)
+02. Server responseModel(Model class)
+03. Repository(Interface)
+04. BaseUsecase(Abstract class)
+	EventUsecases
+
+
+Data:
+
+01. Model class (Based on data required)
+02. Api service(Interface)
+03. RepositoryImpl
+
+
+Presentation:
+
+01. Event State(Success, Error, isLoading)
+02. ViewModels(usecase)
+
+
+DI(Koin)::
+
+class (startKoin, models(repo, usecase, viewModels, httpClient))
+
+
+Domain:
+
+Generic Response::::
+
+interface IResponse<out T> {
+	suspend fun onLoading(isLoading Boolean)
+	suspend fun OnSuccess(data T)
+	suspend fun onError(exception Exception)
+
+}
+
+RemoteResponse:::
+
+
+data class RemoteResponse(
+    val page: Int,
+    val results: List<Result>,
+    val total_pages: Int,
+    val total_results: Int
+)
+
+Usecase:
+
+01. BaseUsecase:
+
+abstract class BaseUsecase<in IN, out OUT> {
+	abstract suspend fun run(params IN):OUT
+
+	operator fun invoke(scope:CoroutineScope, params IN, result:IResponse<OTU>){
+
+	scope.launch {
+
+	try {
+	result.onLoading(true)
+	val response = run(parames = params)
+	result.onSuccess(response)
+
+	}catch (e Exception){
+	result.onLoading(false)
+	result.onError(e)
+
+	     }
+	   }
+	  }
+	}
+
+
+  EventUsecase::
+
+  class EventUsecase(private val repo: IMovieRepo): BaseUsecase<String, RemoteResponse>() {
+
+  override suspend fun run(params:String): RemoteResponse {
+  return repo.getMovies(params)
+  }
+
+  }
+
+
+  Repository:::
+
+  interface IMovieRepo {
+
+  suspend fun getMovies(params:String): RemoteResponse
+
+  }
+
+
+  Data::::::::::::
+
+
+  01. Model Class
+
+  data class MoviesData(
+  val poster:String,
+  val name:String
+  )
+
+  02. Api Service:
+
+  interface APIService {
+
+     @GET("top_rated?language=en-US&page=1")
+    fun getMovieList(@Header("Authorization") auth: String):RemoteResponse
+
+  }
+
+  03. RepoImpl::
+
+  class MovieListRepoImpl(private val httpClient: ApiService): IMoviesRepository {
+  override fun getMoviesList(auth:String): RemoteResponse {
+  return httpClient.getMoviesList(auth)
+
+  }
+  }
+
+
+  DI: File
+
+  const val BASE_URL = "https://api.themoviedb.org/3/movie/"
+
+  startKoin {
+  models(
+
+
+  )
+  }
+
+  val repo = model {
+  factory<IMoviesRepo> {
+
+  MoviesRepoImpl(get())
+  }
+  }
+
+  val usecase = model {
+  factory<MoviesListUsecase> {
+  MoviesListUsecase(get())
+  }
+  }
+
+  val viewModel = model {
+  factory<MoviesListViewModel>{
+  MoviesListViewMode(get())
+  }
+  }
+
+  val httpClient = model {
+     single {
+      val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConvertorFactory(GsonConvertoroFactory.create().build())
+      retrofi.create(APIService::class.java)
+     }
+  }
+
+
+  Presentation::::::
+
+
+  01.MoviesListStates
+
+  sealed class MovieListState
+
+data class SuccessState(val movieList: List<Result>):MovieListState()
+data class LoadingState(val isLoading: Boolean):MovieListState()
+data class ErrorState(val e: Exception):MovieListState()
+
+fun MovieListStateInitial():MovieListState {
+    return LoadingState(true)
+}
+
+
+02. ViewModel::
+
+class MovieListViewModel(private val useCase: MoviesListUsecase): ViewModel() {
+
+	prival val _moviesState = MutableStateFlow<MoviesListState>(MoviesListInitalState)
+
+	val moviesState = _moviesState.asStateFlow()
+
+	fun getMoviesList(auth :String){
+
+	usecase.invoke(viemodelScope, auth, result  = object:IResponse<RemoteResponse> {
+
+		  override suspend fun onLoading(isLoading: Boolean) {
+                _movieState.value = LoadingState(isLoading)
+            }
+
+            override suspend fun onError(exception: Exception) {
+                _movieState.value = ErrorState(exception)
+            }
+
+            override suspend fun onSuccess(response: RemoteResponse) {
+                _movieState.value = SuccessState(response.results)
+            }
+
+
+	})
+	}
+}
+
+03. MainActivity:::
+
+private val viewModel by viewModel<MoviesListViewModel>()
+
+val auth = ""
+
+
+onCreate() {
+
+	viewmodel.getMoviesList(auth)
+
+     val state = viewModel.movieState.collectAsState()
+
+      when (state.value) {
+                        is SuccessState -> {
+                            MovieListUI((state.value as SuccessState).movieList)
+                        }
+
+                        is LoadingState -> {
+                            LoadingUI()
+                        }
+
+                        is Error -> {
+                            ErrorUI(state.value as ErrorState)
+                        }
+                        else -> {
+
+                        }
+
+}
+Application:::
+
+
+class InterviewApp:Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        KoinSetup()
+    }
+}
+
+
+

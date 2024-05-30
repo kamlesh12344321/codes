@@ -1,0 +1,89 @@
+Clean Archi with MVVM and dagger2
+
+## Libraries Used
+- Dagger2
+- Retrofit
+- Coroutines
+- ViewModel
+- LiveData
+- Room
+- Navigation Component
+- Glide
+- Timber
+- JUnit
+- Mockito
+- Espresso
+
+
+## Architecture
+
+The architecture of the project follows the principles of Clean Architecture and MVVM.
+
+The project is divided into three modules:
+
+- **app**: Android application module.
+
+- **data**: Module that contains the data sources of the application. It is divided into two layers: local and remote.
+
+- **domain**: Module that contains the business logic of the application. It is divided into two layers: use cases and repositories.
+
+## How to build on your environment
+
+Add your API key in the `local.properties` file:
+
+Domain:
+
+Add Generic interface for states like Success, Error, Loading, Empty
+
+interface State {
+    class Success<T>(val data: T) : State
+    class Error(val message: String) : State
+    object Loading : State
+    object Empty : State
+}
+
+Server Response Model:
+
+data class ResponseModel(
+    val data: List<Data>,
+    val total: Int,
+    val page: Int,
+    val limit: Int
+)
+
+data class Data(
+    val id: Int,
+    val name: String,
+    val email: String,
+
+)
+
+Repository:
+
+interface Repository {
+    suspend fun getData(): State
+}
+
+UseCase:
+
+Base UseCase class
+
+abstract class UseCase<in Params, out Type> where Type : Any {
+    abstract suspend fun run(params: Params): State
+}
+
+UseCase :
+
+class GetDataUseCase(private val repository: Repository) : UseCase<Unit, State>() {
+    override suspend fun run(params: Unit) = repository.getData()
+}
+
+Data layer:
+
+
+
+
+
+
+
+

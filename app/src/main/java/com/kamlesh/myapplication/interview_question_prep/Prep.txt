@@ -1,0 +1,1169 @@
+
+
+
+
+
+
+
+. Kotlin Basics
+Syntax & Basics: Variables, data types, val vs. var, type inference.
+
+Control Flow: if, when, for, while.
+
+Functions: Declaring functions, default arguments, named arguments.
+
+Null Safety: Nullable types (?), safe calls (?.), Elvis operator (?:), !! operator, let, run, apply, with, and also.
+
+String Interpolation: Using $ for embedding variables in strings.
+
+Type Aliases: Custom names for types for simplification.
+
+
+
+2. Object-Oriented Programming in Kotlin
+
+Classes and Objects: class, properties, methods, constructors.
+
+Inheritance: Open classes, inheritance with :, overriding methods, super.
+
+Data Classes: Auto-generated functions (equals(), hashCode(), copy()).
+
+Sealed Classes: Restricted class hierarchies, when to use sealed classes.
+
+Enums: Enum classes, working with enums.
+
+Abstract Classes: Definition and usage, differences from interfaces.
+
+Interfaces: How to define and implement, differences from abstract classes, default methods.
+
+Visibility Modifiers: public, private, protected, internal.
+
+
+
+
+
+3. Functional Programming Concepts
+
+Higher-Order Functions: Functions as first-class citizens, passing functions as parameters, and returning functions.
+
+Lambda Expressions: Syntax, use cases, inline functions, it keyword.
+
+Anonymous Functions: Differences between lambdas and anonymous functions.
+
+Extension Functions: Extending classes with new methods.
+
+Tail-Recursion: Recursive function optimizations using tailrec.
+
+Function Types: Type signature of functions (Int) -> String.
+
+SAM (Single Abstract Method) Conversions: Interfacing with Java functional interfaces.
+
+
+4. Collections in Kotlin
+
+Lists, Sets, and Maps: Creation, immutability, mutable versions (List, MutableList).
+
+Collection Operations: Filtering, mapping, folding, flatMap, groupBy, associateBy.
+
+Sequences: Lazy collections for optimizing operations on large data.
+
+Ranges: Using ranges and progression in loops, intervals, and ranges (1..10).
+
+5. Coroutines
+
+Introduction to Coroutines: Basics of coroutines, their advantages over threads.
+
+Launch vs Async: Differences between launch (fire-and-forget) and async (returns Deferred).
+
+Dispatcher: Understanding Dispatchers.IO, Dispatchers.Main, Dispatchers.Default.
+
+Structured Concurrency: Why structured concurrency matters, the scope of coroutines.
+
+Coroutine Builders: launch, async, withContext.
+
+Job & SupervisorJob: Controlling the lifecycle of coroutines, cancellation.
+
+Exception Handling: Using try-catch in coroutines, handling exceptions in structured concurrency.
+
+Flow: Cold streams, creating and collecting Flow, operators (map, filter, reduce).
+
+SharedFlow & StateFlow: Hot streams for real-time updates and sharing state.
+
+Channels: Communicating between coroutines using channels.
+
+
+
+
+6. Kotlin with Android
+
+ViewModel and LiveData: Integrating ViewModel with coroutines, managing UI-related data.
+
+Navigation Component: Safe Args, navigation using Kotlin, passing data between fragments.
+
+Room with Coroutines/Flow: Using Kotlin coroutines or Flow to handle database operations.
+
+Repository Pattern with Coroutines: Implementing repositories in Kotlin with coroutines.
+
+Kotlin DSL in Gradle: Writing and using Kotlin DSL in Gradle files.
+
+CoroutineScope in Android: Best practices in using CoroutineScope in Android components (Activity, Fragment, etc.).
+
+
+
+
+
+7. Advanced Kotlin Topics
+
+Inline Functions: Benefits and limitations of inline functions, using noinline and crossinline.
+
+Reified Types: Using inline functions with reified types to work with type parameters at runtime.
+
+Delegation: Property delegation (by keyword), observable properties, lazy initialization.
+
+Generics: Type parameters, variance (out, in), generic constraints.
+
+Kotlin Reflection: Accessing class members at runtime using reflection (KClass).
+
+Type-Safe Builders: DSLs in Kotlin, constructing readable and maintainable APIs.
+
+Annotations: Custom annotations, meta-annotations, and their use cases.
+
+Operator Overloading: Customizing behavior of operators (+, -, get, set, invoke).
+
+
+
+
+
+
+8. Interoperability with Java
+
+Calling Java from Kotlin: Java compatibility, null-safety interop, SAM conversions.
+
+Calling Kotlin from Java: Accessing Kotlin features from Java (companion objects, @JvmStatic, @JvmOverloads).
+
+Kotlin @file:JvmName and @file:JvmStatic: Customizing Kotlin class names for Java interop.
+
+Kotlin @file:JvmOverloads: Default argument interop with Java.
+
+
+
+
+9. Testing in Kotlin
+
+JUnit and Kotlin: Writing unit tests in Kotlin.
+
+Mockito with Kotlin: Mocking and verifying behaviors in Kotlin.
+
+Coroutines Testing: Testing coroutines with runBlockingTest and TestCoroutineDispatcher.
+
+MockK: Kotlin-native mocking framework.
+
+'
+
+10. Kotlin Multiplatform
+
+Kotlin Multiplatform (KMP): Shared business logic across Android and iOS.
+
+Expect/Actual: Using expect and actual keywords for platform-specific code.
+
+Kotlin/Native: Introduction to Kotlin for native platforms (e.g., iOS, Mac, Windows).
+
+Kotlin/JS: Writing Kotlin code that targets JavaScript.
+
+
+
+
+11. Design Patterns in Kotlin
+
+Singleton Pattern: Implementing a singleton in Kotlin.
+
+Factory Pattern: Using Kotlin to implement factory pattern.
+
+Dependency Injection: Using Koin or Hilt with Kotlin.
+
+MVVM with Kotlin: Implementing MVVM architecture in Android apps using Kotlin.
+
+Clean Architecture: Applying Clean Architecture principles in Android projects.
+
+
+
+
+
+12. Concurrency and Performance
+
+Concurrency with Coroutines: Handling multiple coroutines efficiently, cancellation, and cooperative multitasking.
+
+Coroutine Dispatchers and Performance: Best practices for selecting dispatchers (IO, Main, Default) to optimize performance.
+
+Thread Safety: Handling thread-safety in Kotlin, use of synchronized, Mutex, and other concurrency primitives.
+
+
+
+
+
+
+
+Here are some coding interview questions for experienced Android developers, covering a wide range of concepts from data structures and algorithms to Android-specific optimizations. These questions will help you showcase your problem-solving skills, understanding of Android architecture, and experience in writing efficient and maintainable code.
+
+1. Array/LinkedList
+Q: Write a function to reverse a linked list.
+Q: Given an array of integers, find two numbers such that they add up to a specific target.
+Q: How would you merge two sorted linked lists into a single sorted linked list?
+Q: Implement a function to remove duplicates from a sorted linked list.
+Q: Write a function to rotate an array to the right by k steps.
+2. String Manipulation
+Q: Write a function to check if two strings are anagrams of each other.
+Q: Given a string, find the length of the longest substring without repeating characters.
+Q: Implement a method to reverse the words in a sentence.
+Q: Write a function to compress a string using the counts of repeated characters (e.g., "aabcccccaaa" becomes "a2b1c5a3").
+Q: How would you determine if a string is a palindrome?
+3. Dynamic Programming
+Q: Implement a solution to the Knapsack problem using dynamic programming.
+Q: Write a function to find the nth Fibonacci number using dynamic programming.
+Q: Given a list of coin denominations and a target amount, find the minimum number of coins needed to make the target amount.
+Q: Solve the Longest Common Subsequence (LCS) problem for two strings.
+Q: How would you solve the Edit Distance problem between two strings?
+4. Recursion
+Q: Write a recursive function to calculate the factorial of a number.
+Q: Implement a recursive function to generate all subsets of a set.
+Q: Write a function to solve the Towers of Hanoi problem.
+Q: Solve the N-Queens problem using recursion and backtracking.
+Q: Implement a function to find the nth number in the Fibonacci sequence using recursion.
+5. Trees and Graphs
+Q: Write a function to check if a binary tree is a binary search tree (BST).
+Q: Implement an algorithm to find the lowest common ancestor of two nodes in a binary tree.
+Q: Write a function to traverse a binary tree in level order.
+Q: Given a graph, implement a depth-first search (DFS) and breadth-first search (BFS).
+Q: Write a function to check if a graph is cyclic.
+6. Sorting and Searching
+Q: Implement the QuickSort algorithm.
+Q: Implement MergeSort.
+Q: Write a function to perform binary search on a sorted array.
+Q: Given an array of integers, sort it in linear time using a counting sort.
+Q: Find the kth largest element in an unsorted array.
+7. Android-Specific
+Q: How would you implement a custom View in Android?
+Q: Write a method to cache data from the network and retrieve it efficiently in an Android app.
+Q: How would you optimize an Android app that loads large images, especially in a RecyclerView?
+Q: Implement a method to handle long-running background tasks in Android (e.g., downloading a file).
+Q: How would you handle configuration changes (e.g., screen rotation) in an Android activity to retain the current state?
+8. Concurrency and Multithreading
+Q: Write a program that creates multiple threads and sums up an array of integers in parallel.
+Q: Implement a thread-safe singleton pattern in Java or Kotlin.
+Q: Write a producer-consumer solution using threads in Java.
+Q: How would you manage threading in Android when performing network operations?
+Q: Implement a solution to prevent deadlock in a multithreaded environment.
+9. Memory Management
+Q: Explain how garbage collection works in Java. Implement a simple example to avoid memory leaks in Android.
+Q: Write a function to simulate a memory-efficient LRU cache.
+Q: How would you handle memory leaks in an Android application?
+Q: Implement a solution to detect and resolve circular dependencies in Android using dependency injection.
+Q: How would you optimize memory usage when processing large bitmaps in Android?
+10. Object-Oriented Design
+Q: Design a parking lot system using object-oriented principles.
+Q: How would you design an elevator system?
+Q: Design a class hierarchy for different types of bank accounts.
+Q: Implement a simple version of an online shopping cart system.
+Q: Design a text editor with undo/redo functionality.
+11. Kotlin-Specific
+Q: Write a Kotlin extension function to reverse a string.
+Q: Implement a function in Kotlin using coroutines to fetch data from a network asynchronously.
+Q: How would you handle null safety in Kotlin when dealing with Java interop?
+Q: Write a function that uses Kotlin's sealed class to handle different states in an Android app (e.g., success, error, loading).
+Q: Implement a Kotlin data class with custom getter and setter methods.
+Bonus: System Design (for senior Android developers)
+Q: Design a system to manage user sessions in a mobile app.
+Q: How would you architect an Android app that can handle large amounts of real-time data?
+Q: Design an Android app to stream video content. What are the key components and considerations?
+Q: How would you design a push notification system for an Android app that scales to millions of users?
+Q: Architect a mobile payment app. What security measures would you take?
+
+
+
+
+
+
+
+. Kotlin Basics
+Syntax & Basics: Variables, data types, val vs. var, type inference.
+
+Control Flow: if, when, for, while.
+
+Functions: Declaring functions, default arguments, named arguments.
+
+Null Safety: Nullable types (?), safe calls (?.), Elvis operator (?:), !! operator, let, run, apply, with, and also.
+
+String Interpolation: Using $ for embedding variables in strings.
+
+Type Aliases: Custom names for types for simplification.
+
+
+
+2. Object-Oriented Programming in Kotlin
+
+Classes and Objects: class, properties, methods, constructors.
+
+Inheritance: Open classes, inheritance with :, overriding methods, super.
+
+Data Classes: Auto-generated functions (equals(), hashCode(), copy()).
+
+Sealed Classes: Restricted class hierarchies, when to use sealed classes.
+
+Enums: Enum classes, working with enums.
+
+Abstract Classes: Definition and usage, differences from interfaces.
+
+Interfaces: How to define and implement, differences from abstract classes, default methods.
+
+Visibility Modifiers: public, private, protected, internal.
+
+
+
+
+
+3. Functional Programming Concepts
+
+Higher-Order Functions: Functions as first-class citizens, passing functions as parameters, and returning functions.
+
+Lambda Expressions: Syntax, use cases, inline functions, it keyword.
+
+Anonymous Functions: Differences between lambdas and anonymous functions.
+
+Extension Functions: Extending classes with new methods.
+
+Tail-Recursion: Recursive function optimizations using tailrec.
+
+Function Types: Type signature of functions (Int) -> String.
+
+SAM (Single Abstract Method) Conversions: Interfacing with Java functional interfaces.
+
+
+4. Collections in Kotlin
+
+Lists, Sets, and Maps: Creation, immutability, mutable versions (List, MutableList).
+
+Collection Operations: Filtering, mapping, folding, flatMap, groupBy, associateBy.
+
+Sequences: Lazy collections for optimizing operations on large data.
+
+Ranges: Using ranges and progression in loops, intervals, and ranges (1..10).
+
+5. Coroutines
+
+Introduction to Coroutines: Basics of coroutines, their advantages over threads.
+
+Launch vs Async: Differences between launch (fire-and-forget) and async (returns Deferred).
+
+Dispatcher: Understanding Dispatchers.IO, Dispatchers.Main, Dispatchers.Default.
+
+Structured Concurrency: Why structured concurrency matters, the scope of coroutines.
+
+Coroutine Builders: launch, async, withContext.
+
+Job & SupervisorJob: Controlling the lifecycle of coroutines, cancellation.
+
+Exception Handling: Using try-catch in coroutines, handling exceptions in structured concurrency.
+
+Flow: Cold streams, creating and collecting Flow, operators (map, filter, reduce).
+
+SharedFlow & StateFlow: Hot streams for real-time updates and sharing state.
+
+Channels: Communicating between coroutines using channels.
+
+
+
+
+6. Kotlin with Android
+
+ViewModel and LiveData: Integrating ViewModel with coroutines, managing UI-related data.
+
+Navigation Component: Safe Args, navigation using Kotlin, passing data between fragments.
+
+Room with Coroutines/Flow: Using Kotlin coroutines or Flow to handle database operations.
+
+Repository Pattern with Coroutines: Implementing repositories in Kotlin with coroutines.
+
+Kotlin DSL in Gradle: Writing and using Kotlin DSL in Gradle files.
+
+CoroutineScope in Android: Best practices in using CoroutineScope in Android components (Activity, Fragment, etc.).
+
+
+
+
+
+7. Advanced Kotlin Topics
+
+Inline Functions: Benefits and limitations of inline functions, using noinline and crossinline.
+
+Reified Types: Using inline functions with reified types to work with type parameters at runtime.
+
+Delegation: Property delegation (by keyword), observable properties, lazy initialization.
+
+Generics: Type parameters, variance (out, in), generic constraints.
+
+Kotlin Reflection: Accessing class members at runtime using reflection (KClass).
+
+Type-Safe Builders: DSLs in Kotlin, constructing readable and maintainable APIs.
+
+Annotations: Custom annotations, meta-annotations, and their use cases.
+
+Operator Overloading: Customizing behavior of operators (+, -, get, set, invoke).
+
+
+
+
+
+
+8. Interoperability with Java
+
+Calling Java from Kotlin: Java compatibility, null-safety interop, SAM conversions.
+
+Calling Kotlin from Java: Accessing Kotlin features from Java (companion objects, @JvmStatic, @JvmOverloads).
+
+Kotlin @file:JvmName and @file:JvmStatic: Customizing Kotlin class names for Java interop.
+
+Kotlin @file:JvmOverloads: Default argument interop with Java.
+
+
+
+
+9. Testing in Kotlin
+
+JUnit and Kotlin: Writing unit tests in Kotlin.
+
+Mockito with Kotlin: Mocking and verifying behaviors in Kotlin.
+
+Coroutines Testing: Testing coroutines with runBlockingTest and TestCoroutineDispatcher.
+
+MockK: Kotlin-native mocking framework.
+
+'
+
+10. Kotlin Multiplatform
+
+Kotlin Multiplatform (KMP): Shared business logic across Android and iOS.
+
+Expect/Actual: Using expect and actual keywords for platform-specific code.
+
+Kotlin/Native: Introduction to Kotlin for native platforms (e.g., iOS, Mac, Windows).
+
+Kotlin/JS: Writing Kotlin code that targets JavaScript.
+
+
+
+
+11. Design Patterns in Kotlin
+
+Singleton Pattern: Implementing a singleton in Kotlin.
+
+Factory Pattern: Using Kotlin to implement factory pattern.
+
+Dependency Injection: Using Koin or Hilt with Kotlin.
+
+MVVM with Kotlin: Implementing MVVM architecture in Android apps using Kotlin.
+
+Clean Architecture: Applying Clean Architecture principles in Android projects.
+
+
+
+
+
+12. Concurrency and Performance
+
+Concurrency with Coroutines: Handling multiple coroutines efficiently, cancellation, and cooperative multitasking.
+
+Coroutine Dispatchers and Performance: Best practices for selecting dispatchers (IO, Main, Default) to optimize performance.
+
+Thread Safety: Handling thread-safety in Kotlin, use of synchronized, Mutex, and other concurrency primitives.
+
+
+
+
+
+
+
+Here are some coding interview questions for experienced Android developers, covering a wide range of concepts from data structures and algorithms to Android-specific optimizations. These questions will help you showcase your problem-solving skills, understanding of Android architecture, and experience in writing efficient and maintainable code.
+
+1. Array/LinkedList
+Q: Write a function to reverse a linked list.
+Q: Given an array of integers, find two numbers such that they add up to a specific target.
+Q: How would you merge two sorted linked lists into a single sorted linked list?
+Q: Implement a function to remove duplicates from a sorted linked list.
+Q: Write a function to rotate an array to the right by k steps.
+2. String Manipulation
+Q: Write a function to check if two strings are anagrams of each other.
+Q: Given a string, find the length of the longest substring without repeating characters.
+Q: Implement a method to reverse the words in a sentence.
+Q: Write a function to compress a string using the counts of repeated characters (e.g., "aabcccccaaa" becomes "a2b1c5a3").
+Q: How would you determine if a string is a palindrome?
+3. Dynamic Programming
+Q: Implement a solution to the Knapsack problem using dynamic programming.
+Q: Write a function to find the nth Fibonacci number using dynamic programming.
+Q: Given a list of coin denominations and a target amount, find the minimum number of coins needed to make the target amount.
+Q: Solve the Longest Common Subsequence (LCS) problem for two strings.
+Q: How would you solve the Edit Distance problem between two strings?
+4. Recursion
+Q: Write a recursive function to calculate the factorial of a number.
+Q: Implement a recursive function to generate all subsets of a set.
+Q: Write a function to solve the Towers of Hanoi problem.
+Q: Solve the N-Queens problem using recursion and backtracking.
+Q: Implement a function to find the nth number in the Fibonacci sequence using recursion.
+5. Trees and Graphs
+Q: Write a function to check if a binary tree is a binary search tree (BST).
+Q: Implement an algorithm to find the lowest common ancestor of two nodes in a binary tree.
+Q: Write a function to traverse a binary tree in level order.
+Q: Given a graph, implement a depth-first search (DFS) and breadth-first search (BFS).
+Q: Write a function to check if a graph is cyclic.
+6. Sorting and Searching
+Q: Implement the QuickSort algorithm.
+Q: Implement MergeSort.
+Q: Write a function to perform binary search on a sorted array.
+Q: Given an array of integers, sort it in linear time using a counting sort.
+Q: Find the kth largest element in an unsorted array.
+7. Android-Specific
+Q: How would you implement a custom View in Android?
+Q: Write a method to cache data from the network and retrieve it efficiently in an Android app.
+Q: How would you optimize an Android app that loads large images, especially in a RecyclerView?
+Q: Implement a method to handle long-running background tasks in Android (e.g., downloading a file).
+Q: How would you handle configuration changes (e.g., screen rotation) in an Android activity to retain the current state?
+8. Concurrency and Multithreading
+Q: Write a program that creates multiple threads and sums up an array of integers in parallel.
+Q: Implement a thread-safe singleton pattern in Java or Kotlin.
+Q: Write a producer-consumer solution using threads in Java.
+Q: How would you manage threading in Android when performing network operations?
+Q: Implement a solution to prevent deadlock in a multithreaded environment.
+9. Memory Management
+Q: Explain how garbage collection works in Java. Implement a simple example to avoid memory leaks in Android.
+Q: Write a function to simulate a memory-efficient LRU cache.
+Q: How would you handle memory leaks in an Android application?
+Q: Implement a solution to detect and resolve circular dependencies in Android using dependency injection.
+Q: How would you optimize memory usage when processing large bitmaps in Android?
+10. Object-Oriented Design
+Q: Design a parking lot system using object-oriented principles.
+Q: How would you design an elevator system?
+Q: Design a class hierarchy for different types of bank accounts.
+Q: Implement a simple version of an online shopping cart system.
+Q: Design a text editor with undo/redo functionality.
+11. Kotlin-Specific
+Q: Write a Kotlin extension function to reverse a string.
+Q: Implement a function in Kotlin using coroutines to fetch data from a network asynchronously.
+Q: How would you handle null safety in Kotlin when dealing with Java interop?
+Q: Write a function that uses Kotlin's sealed class to handle different states in an Android app (e.g., success, error, loading).
+Q: Implement a Kotlin data class with custom getter and setter methods.
+Bonus: System Design (for senior Android developers)
+Q: Design a system to manage user sessions in a mobile app.
+Q: How would you architect an Android app that can handle large amounts of real-time data?
+Q: Design an Android app to stream video content. What are the key components and considerations?
+Q: How would you design a push notification system for an Android app that scales to millions of users?
+Q: Architect a mobile payment app. What security measures would you take?
+
+ 
+
+
+
+
+
+
+
+////////////////////////////////////High Order function///////////////////
+
+fun myHighOrderFunction(x, y, operation(x, y)-> Unit) {
+
+return operation(x,y)
+}
+
+val multiplication = myHighOrderFunction(2,3){x,y -> x*y}
+val additaion = myHighOrderFunction(2,3){x,y -> x+y)
+
+print(multiplication)
+print(additaion)
+
+If we see for collection framework/////////////////
+
+var list = listOf("apple", "chese", "Banana")
+
+val sortedList = list.sortBy {it.lenght}
+
+print(sortedList)
+
+
+Callbacks in Asynchronous Operations////////////////
+
+
+fun loadData(onSuccess: (String) -> Unit, onFailure (Exception) -> Unit) {
+
+try {
+
+onSuccess("Data Loaded SuccessFully")
+
+} chach(e Exception) {
+
+onFailure(e.message)
+}
+}
+
+loadData(
+    onSuccess = { data -> println(data) },
+    onFailure = { error -> println("Error: $error") }
+)
+
+High-order functions enable function chaining where the output of one function becomes the input for another.//////////////
+
+fun multiplyByTwo(x: Int): Int = x * 2
+fun addThree(x: Int): Int = x + 3
+
+val result = listOf(1, 2, 3, 4).map(::multiplyByTwo).map(::addThree)
+println(result) // Output: [5, 7, 9, 11]
+
+
+
+///////////////////Lamda function//////////////////////////
+
+
+Defination:
+
+
+A lambda expression is an anonymous function that can be passed around as a value. It's a concise way to define a function inline without giving it a name.
+
+Key Characteristics:
+Anonymous function: A lambda doesn't have a name and is defined inline.
+Concise syntax: Lambdas often reduce boilerplate code.
+Used as arguments: Lambdas are frequently passed to high-order functions as parameters.
+
+
+
+
+
+Differences and usecase
+
+
+Definition	
+A lambda is an anonymous function that can be used as a value.
+A high-order function is a function that takes another function (lambda) as a parameter or returns a function.
+	
+	
+Role	
+Lambda represents a block of code (a function) that can be passed around and executed later.	
+High-order functions define higher-level behavior by accepting or returning other functions (lambdas).
+
+Usage	
+
+Lambdas are typically used as function arguments, passed to high-order functions.	
+High-order functions provide a mechanism to pass lambdas or other functions, allowing flexible operations.
+
+
+Example	
+
+{ x: Int, y: Int -> x + y } (Lambda expression that adds two numbers)	
+fun doOperation(a: Int, b: Int, operation: (Int, Int) -> Int) (High-order function that accepts a lambda)
+
+
+Purpose
+
+	Used to provide inline, anonymous functionality without defining named functions.	
+	Used to provide flexibility and generality by accepting various behaviors (functions) as arguments or return values.
+	
+Relation
+
+	Lambdas are often passed as arguments to high-order functions.	
+	High-order functions frequently accept lambdas or return them as part of their operation.
+	
+	
+Return 
+Type	Lambdas don’t need explicit return types but infer them based on context.	
+High-order functions must specify if they return another function or accept one as a parameter.
+
+
+
+///////////////////////////////INline function///////////////////////////////////////////////////
+
+
+INline function is when we use inline keyword in function and whenever the compiler fins an inline fun it directly call function body insted od creating method object creating and it is
+manly used in highorder function where we pass lemdas as parameter.When we call non inline function its object is getting created and classes behind the screen and mak lag in performance.
+
+inline fun performOperation(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    return operation(a, b)
+}
+
+val result = performOperation(5, 10) { x, y -> x + y }
+println(result) 
+
+
+Use Case of Inline Functions
+Performance-Intensive Operations If you have a high-order function that's called frequently or with lambdas, making it inline can improve performance.
+
+Avoiding Memory Allocations for Lambdas Inline functions can prevent memory allocation for lambda objects and their capturing environments.
+
+
+///////////////////////////////////CrossLine function///////////////////////////////
+
+Crossinline Functions
+The crossinline keyword is used in combination with inline to prevent the lambda from being non-local. In Kotlin,
+ lambdas can normally use non-local returns (i.e., return from the enclosing function). However, 
+ if you want to ensure that the lambda passed to an inline function cannot return from the calling function, you mark it as crossinline.
+
+Why Use Crossinline?
+Prevent Non-local Returns: In certain cases,
+ you may want to prevent a lambda from returning from the outer function. 
+ 
+ 
+ This is useful when you're doing operations inside loops, asynchronous tasks, or callbacks where non-local returns are undesirable.
+ 
+ Use Case of Crossinline
+Asynchronous Operations If you're executing code asynchronously in a different thread, you generally don't want non-local returns.
+ In such cases, you can use crossinline to prevent returning from the outer function.
+
+Loop and Callback Scenarios In loops or callbacks, using crossinline can help you avoid accidental returns that could break the flow of execution.
+
+
+
+
+
+
+
+
+//////////////////////////////////NonLine fun////////////////////
+
+
+Noinline Functions
+In inline functions, noinline is the keyword used to exclude certain lambda parameters from being inlined.
+ If a function has multiple lambda parameters but you want only some of them to be inlined (while keeping others as actual objects),
+ you can use noinline on the lambdas you don't want to be inlined.
+
+Why Use Noinline?
+Keep Certain Lambda Objects: If you want the flexibility of creating objects for certain lambdas (perhaps for later invocation or passing to other functions),
+ you can mark them as noinline.
+Mixed Use: Some lambdas may benefit from inlining, while others may not.
+
+
+
+When to Use Inline, Crossinline, and Noinline
+Use Inline:
+
+For performance improvement, especially in high-order functions that take lambdas as arguments.
+When you want to eliminate the overhead of function calls and object creation for lambdas.
+
+
+Use Crossinline:
+
+When you want to prevent non-local returns in lambdas (e.g., in asynchronous or callback scenarios).
+For lambdas that shouldn't break the flow of the outer function.
+
+
+Use Noinline:
+
+When you want some lambda arguments to remain as objects for deferred execution or further processing.
+When the lambda passed will be stored, passed to another function, or executed multiple times outside the scope of the original call.
+
+
+
+1. Reversing a String
+Problem: Reverse the given string.
+Example: Input: "hello", Output: "olleh"
+Follow-up: Solve using recursion, in-place, or stack.
+
+2. Check if a String is a Palindrome
+Problem: Check if the given string is the same when reversed.
+Example: Input: "madam", Output: true
+Follow-up: Ignore non-alphanumeric characters and case sensitivity.
+
+3. Find the First Non-repeating Character
+Problem: Find the first character in the string that does not repeat.
+Example: Input: "swiss", Output: 'w'
+Solution Approach: Use a hash map or array to store frequency counts.
+
+4. Anagram Check
+Problem: Check if two strings are anagrams of each other.
+Example: Input: "listen", "silent", Output: true
+Solution Approach: Sort both strings or use a frequency count.
+
+5. Longest Substring Without Repeating Characters
+Problem: Find the length of the longest substring without repeating characters.
+Example: Input: "abcabcbb", Output: 3 (substring is "abc")
+Solution Approach: Use sliding window or two-pointer technique.
+
+6. Count the Number of Words in a String
+Problem: Count the number of words in a given string.
+Example: Input: "Hello world!", Output: 2
+Follow-up: Handle multiple spaces, punctuation, or edge cases like an empty string.
+
+
+7. String Compression
+Problem: Implement basic string compression using the counts of repeated characters.
+Example: Input: "aabcccccaaa", Output: "a2b1c5a3"
+Follow-up: Only compress the string if it results in a shorter length.
+
+
+8. Longest Palindromic Substring
+Problem: Find the longest palindromic substring in the given string.
+Example: Input: "babad", Output: "bab" or "aba"
+Solution Approach: Expand around centers or dynamic programming.
+
+
+9. Check if a String Contains Only Digits
+Problem: Verify if the given string consists only of numeric characters.
+Example: Input: "12345", Output: true
+Follow-up: Handle negative numbers, decimals, or non-digit characters.
+
+
+10. Find All Permutations of a String
+Problem: Generate all permutations of the given string.
+Example: Input: "abc", Output: ["abc", "acb", "bac", "bca", "cab", "cba"]
+Solution Approach: Use recursion and backtracking.
+
+
+11. Longest Common Prefix
+Problem: Given an array of strings, find the longest common prefix among them.
+Example: Input: ["flower", "flow", "flight"], Output: "fl"
+Solution Approach: Use vertical scanning or divide and conquer.
+
+
+12. Count and Say Problem
+Problem: Given an integer n, generate the nth term in the "count and say" sequence.
+Example: Input: 4, Output: "1211"
+Solution Approach: Simulate the sequence and construct each term iteratively.
+
+
+13. Valid Parentheses
+Problem: Check if the given string of parentheses is valid.
+Example: Input: "()[]{}", Output: true
+Solution Approach: Use a stack to check matching pairs.
+
+
+14. Roman to Integer Conversion
+Problem: Convert a Roman numeral string to its integer value.
+Example: Input: "IX", Output: 9
+Solution Approach: Traverse the string and sum values based on Roman numeral rules.
+
+
+15. String Rotation Check
+Problem: Check if one string is a rotation of another.
+Example: Input: "waterbottle", "erbottlewat", Output: true
+Solution Approach: Check if the second string is a substring of the first string concatenated with itself.
+
+
+16. Find the Longest Common Subsequence
+Problem: Find the longest subsequence common to two strings.
+Example: Input: "abcde", "ace", Output: "ace"
+Solution Approach: Use dynamic programming.
+
+
+17. String to Integer (atoi)
+Problem: Convert a string to an integer (like the C/C++ atoi function).
+Example: Input: "42", Output: 42
+Follow-up: Handle white spaces, overflow, and invalid input.
+
+
+18. Group Anagrams
+Problem: Group anagrams from a list of strings.
+Example: Input: ["eat", "tea", "tan", "ate", "nat", "bat"], Output: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+Solution Approach: Use sorting and a hash map to group anagrams.
+
+
+19. Zigzag Conversion
+Problem: Convert the given string into a zigzag pattern on a given number of rows.
+Example: Input: "PAYPALISHIRING", Output: "PAHNAPLSIIGYIR"
+Solution Approach: Simulate the zigzag pattern using an array of rows.
+
+
+20. Remove Duplicates in a String
+Problem: Remove all duplicate characters from the given string.
+Example: Input: "abbc", Output: "abc"
+Solution Approach: Use a set or boolean array to track characters.
+
+
+21. Find All Substrings of a String
+Problem: Generate all possible substrings of the given string.
+Example: Input: "abc", Output: ["a", "ab", "abc", "b", "bc", "c"]
+Solution Approach: Use nested loops to extract substrings.
+
+
+22. Find the Most Frequent Character in a String
+Problem: Find the character that appears the most in the string.
+Example: Input: "abracadabra", Output: 'a'
+Solution Approach: Use a hash map or an array to count occurrences.
+
+
+
+Top 20 Array Interview Questions (Coding)
+
+
+01. Find the Maximum Subarray Sum (Kadane’s Algorithm)
+
+Write a function to find the maximum sum of a contiguous subarray.
+
+Answer::
+
+Kadane’s Algorithm is an efficient solution to find the maximum sum of a contiguous subarray within a one-dimensional numeric array. 
+The algorithm runs in O(n) time and uses O(1) space.
+
+
+
+02. Find Missing Number
+
+Given an array containing n-1 numbers from 1 to n, find the missing number.
+
+03. Find the Duplicate Number
+
+Find the duplicate number in an array of n+1 integers where each integer is between 1 and n inclusive.
+
+04. Sort Colors (Dutch National Flag Problem)
+
+Given an array with 0s, 1s, and 2s, sort the array in place without using any sorting algorithm.
+
+
+05. Product of Array Except Self
+
+Given an array, return an array where each element is the product of all elements except itself.
+
+06. Find Peak Element
+
+Given an array where every element is distinct, find a peak element where the element is greater than its neighbors.
+
+07. Two Sum
+
+Find two numbers in an array that add up to a target sum.
+
+08. Merge Intervals
+
+Given a collection of intervals, merge all overlapping intervals.
+
+09. Find Kth Largest Element
+
+Find the kth largest element in an unsorted array.
+
+10. Trapping Rain Water
+
+Given an array representing heights of bars, find how much water can be trapped after rain.
+
+11. Rotate Array
+Rotate an array by k steps to the right.
+
+12. Find All Duplicates
+Find all duplicate elements in an array where numbers range from 1 to n.
+
+
+13. Move Zeros
+Move all zeros in an array to the end while maintaining the relative order of other elements.
+
+14. Longest Consecutive Sequence
+Find the length of the longest consecutive elements sequence in an array.
+
+
+15. Subarray Sum Equals K
+Given an array of integers and an integer k, find the total number of subarrays whose sum equals k.
+
+
+16. Maximum Product Subarray
+Find the contiguous subarray within an array that has the largest product.
+
+
+17. Contains Duplicate
+Check if the array contains any duplicates.
+
+18. Container With Most Water
+Given n non-negative integers representing height, find two lines that together hold the most water.
+
+
+19. Binary Search
+Implement binary search on a sorted array.
+
+
+20. Find Minimum in Rotated Sorted Array
+Find the minimum element in a rotated sorted array.
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Top 20 LinkedList Interview Questions (Coding)
+01.Reverse a Linked List
+
+Reverse a singly linked list.
+
+02. Detect a Cycle in a Linked List
+
+Check whether a linked list has a cycle in it using Floyd’s Cycle-Finding Algorithm.
+
+
+03. Merge Two Sorted Linked Lists
+
+Merge two sorted linked lists into one sorted list.
+
+
+04. Remove Nth Node From End of List
+
+Remove the nth node from the end of a linked list.
+
+
+05. Find Intersection Point of Two Linked Lists
+
+Find the node where two linked lists intersect.
+
+
+06. Delete a Node in a Linked List
+
+Delete a node from a singly linked list, given only access to that node.
+
+
+07. Add Two Numbers Represented by Linked Lists
+
+Given two numbers represented by linked lists, add the two numbers and return it as a linked list.
+
+
+08. Palindrome Linked List
+
+Determine if a singly linked list is a palindrome.
+
+
+09. Flatten a Multilevel Doubly Linked List
+
+Given a doubly linked list, flatten it into a single level linked list.
+
+
+10. Sort a Linked List
+
+Sort a linked list using merge sort or another algorithm.
+
+
+11. Remove Duplicates from a Sorted Linked List
+
+Remove all duplicates in a sorted linked list.
+
+
+12. Rotate Linked List
+
+Rotate a linked list to the right by k places.
+
+
+13. Partition List
+
+Partition a linked list around a value such that all nodes less than the value come before nodes greater than or equal to it.
+
+
+14. Reverse Nodes in k-Group
+
+Reverse nodes in k-group in a linked list.
+
+
+15. Swap Nodes in Pairs
+
+Swap every two adjacent nodes in a linked list.
+
+
+16. Reorder List
+
+Given a singly linked list, reorder it to alternate between the first and last elements.
+
+
+17. Remove Linked List Elements
+
+Remove all elements from a linked list of integers that have a specific value.
+
+
+18. Convert Binary Number in a Linked List to Integer
+
+Given a linked list representing a binary number, return its decimal equivalent.
+
+
+19. Intersection of Two Linked Lists
+
+Find the first common node of two linked lists.
+
+
+20. Clone a Linked List with Random Pointer
+
+Copy a linked list where each node has a random pointer.
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Top 20 Array Interview Questions (Non-Coding)
+What are the advantages of using an array over a linked list?
+
+What are dynamic arrays, and how do they differ from static arrays?
+
+Explain how arrays are stored in memory.
+
+How does resizing work in dynamic arrays like ArrayList?
+
+What is the time complexity of inserting an element into an array?
+
+Explain the difference between an array and an ArrayList in Java.
+
+What are multi-dimensional arrays, and how are they implemented in Java?
+
+Explain the concept of array slicing.
+
+What is a sparse array?
+
+How is binary search implemented in a sorted array?
+
+What is a circular array, and where is it used?
+
+How would you merge two arrays into one?
+
+What are some common pitfalls when working with arrays in Java or Kotlin?
+
+How do you handle arrays with a large number of elements that may cause memory issues?
+
+Explain the difference between a shallow copy and a deep copy for arrays.
+
+How do you implement an immutable array in Java?
+
+What are the key differences between an array and a linked list?
+
+Explain what happens when you access an array index that is out of bounds.
+
+What are jagged arrays, and how do they differ from multi-dimensional arrays?
+
+Discuss memory fragmentation in relation to array allocations.
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Top 20 LinkedList Interview Questions (Non-Coding)
+What is the difference between a singly linked list and a doubly linked list?
+
+What are the advantages and disadvantages of using a linked list over an array?
+
+How do you implement a circular linked list?
+
+What are the real-world applications of linked lists?
+
+Explain the concept of a sentinel node in linked lists.
+
+What is the time complexity of inserting a node into a linked list?
+
+How do you handle memory management in linked lists?
+
+Why are linked lists more memory-efficient than arrays?
+
+What is the difference between a linked list and a skip list?
+
+Explain how garbage collection works with linked lists in Java.
+
+What are the common use cases for doubly linked lists?
+
+What is the time complexity of searching for an element in a linked list?
+
+How would you detect a cycle in a linked list without using extra memory?
+
+What are the key differences between a linked list and a stack/queue?
+
+What is a self-adjusting linked list?
+
+How is a linked list implemented in a high-level programming language like Java or Kotlin?
+
+What happens when you delete the last node in a linked list?
+
+Can linked lists be stored in contiguous memory locations? Why or why not?
+
+How does pointer manipulation work in a doubly linked list?
+
+Explain the difference between a normal linked list and a circular linked list.
